@@ -1,0 +1,27 @@
+## YAML Template.
+---
+Birk\MyBundle\Entity\Image:
+    image_{1..20}:
+        alt: <word(45)>
+        url: <imageUrl(300,300,'abstract')>
+        
+Birk\MyBundle\Entity\User:
+    user_{1..20}:
+        username: <text(100)>
+        profilePicture: <imageUrl(300,300,'people')>
+
+Birk\MyBundle\Entity\Categories:
+    categories_{1..5}:
+        nom: <sentence(2)>
+        description: <text(500)>
+       
+Birk\MyBundle\Entity\Events:
+    events_{1..20}:
+        nom: <text(100)>
+        description: <text(255)>
+        debut: <dateTime()>
+        fin: <dateTime()>
+        
+        image: '@image_<current()>'
+#        user: '@user_<numberBetween(1,50)>'
+        categories: '@categories_<numberBetween(1,5)>'

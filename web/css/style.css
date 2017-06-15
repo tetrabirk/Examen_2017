@@ -33,6 +33,12 @@ h3{
     font-size: 13px;
 }
 
+.solo li img{
+    width: 50px;
+    height: 50px;
+    margin: 5px 5px 0 0;
+}
+
 #conteneur{
     display: flex;
     flex-wrap: wrap;

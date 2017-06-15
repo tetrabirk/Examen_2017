@@ -2,14 +2,29 @@
 
 {% block content %}
         <h1>
-            Stupid Post
+            One cool Event
         </h1>
         <div class="element solo">
-            <h2>{{ post.title }}</h2>
-            <img src="{{ post.photo }}">
-            <p>{{ post.description }}</p>
-            <p>{{ post.date|date("d/m/Y") }}</p>
-            <a href="{{ path('birk_my_user_userone')~'/'~post.user.id}}">{{ post.user.name }}</a>
+            <h2>{{ event.nom }}</h2>
+            <img src="{{ event.image.url }}" alt="{{ event.image.alt }}">
+            <p>{{ event.description }}</p>
+            <p> 
+                debut: {{ event.debut|date("d/m/Y H:i") }} -
+                fin : {{ event.fin|date("d/m/Y H:i") }}
+            </p>
+            <h3>Categorie</h3>
+            <ul>
+            {% for c in event.categories %}
+                <li><a href="{{ path('birk_my_categories_categorieall') }}">{{ c.nom }}</a></li>
+            {% endfor %}
+            </ul>
+            <h3>Users</h3>
+            <ul>
+            {% for u in event.user %}
+                <li><img class="profilepicture" src="{{ u.profilePicture }}" alt="{{ event.image.alt }}">{{ u.username }}</li>
+            {% endfor %}
+            </ul>
+            
         </div>
 
 {% endblock %}

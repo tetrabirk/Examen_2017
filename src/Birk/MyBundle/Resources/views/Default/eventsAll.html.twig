@@ -2,16 +2,19 @@
 
 {% block content %}
     <h1>
-        All the dumb Posts
+        All the cool Events
     </h1>
-    {% for p in post %}
+    {% for e in events %}
 
         <div class="element">
-            <h3>{{ p.title }}</h3>
-            <img src="{{ p.photo }}">
-            <p>{{ p.description }}</p>
-            <p>{{ p.date|date("d/m/Y") }}</p>
-            <a href="{{ path('birk_my_post_postone')~'/'~p.id}}">++++++ en savoir plus ++++++</a>
+            <h3>{{ e.nom }}</h3>
+            <img src="{{ e.image.url }}" alt="{{ e.image.alt }}">
+            <p>{{ e.description }}</p>
+            <p> 
+                debut: {{ e.debut|date("d/m/Y H:i") }} - 
+                fin : {{ e.fin|date("d/m/Y H:i") }}
+            </p>
+            <a href="{{ path('birk_my_events_eventsone')~'/'~e.id}}">++++++ en savoir plus ++++++</a>
         </div>
     {% endfor %}
 

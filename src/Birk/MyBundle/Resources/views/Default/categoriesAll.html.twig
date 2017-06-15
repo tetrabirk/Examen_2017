@@ -2,16 +2,16 @@
 
 {% block content %}
     <h1>
-        All the dumb Posts
+        All the fun Categories
     </h1>
-    {% for p in post %}
+    {% for c in categories %}
 
         <div class="element">
-            <h3>{{ p.title }}</h3>
-            <img src="{{ p.photo }}">
-            <p>{{ p.description }}</p>
-            <p>{{ p.date|date("d/m/Y") }}</p>
-            <a href="{{ path('birk_my_post_postone')~'/'~p.id}}">++++++ en savoir plus ++++++</a>
+            <h3>{{ c.nom }}</h3>
+            <p>{{ c.description }}</p>
+            {% for e in categories.events %}
+                <li><a href="{{ path('birk_my_events_eventsall') }}">{{ e.nom }}</a></li>
+            {% endfor %}
         </div>
     {% endfor %}
 
